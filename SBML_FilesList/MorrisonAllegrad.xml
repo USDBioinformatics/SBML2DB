@@ -1,0 +1,2780 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="MorrisonAllegra" name="Morrison1989_FolateCycle">
+    <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#">
+    <rdf:Description rdf:about="#metaid_0000002">
+      <dc:creator>
+        <rdf:Bag>
+          <rdf:li rdf:parseType="Resource">
+            <vCard:N rdf:parseType="Resource">
+              <vCard:Family>Le Novère</vCard:Family>
+              <vCard:Given>Nicolas</vCard:Given>
+            </vCard:N>
+            <vCard:EMAIL>lenov@ebi.ac.uk</vCard:EMAIL>
+            <vCard:ORG rdf:parseType="Resource">
+              <vCard:Orgname>EMBL-EBI</vCard:Orgname>
+            </vCard:ORG>
+          </rdf:li>
+          <rdf:li rdf:parseType="Resource">
+            <vCard:N rdf:parseType="Resource">
+              <vCard:Family>Radivoyevitch</vCard:Family>
+              <vCard:Given>Tomas</vCard:Given>
+            </vCard:N>
+            <vCard:EMAIL>txr24@po.cwru.edu</vCard:EMAIL>
+            <vCard:ORG rdf:parseType="Resource">
+              <vCard:Orgname>CASE western research university</vCard:Orgname>
+            </vCard:ORG>
+          </rdf:li>
+        </rdf:Bag>
+      </dc:creator>
+      <dcterms:created rdf:parseType="Resource">
+        <dcterms:W3CDTF>2005-06-29T10:22:41Z</dcterms:W3CDTF>
+      </dcterms:created>
+      <dcterms:modified rdf:parseType="Resource">
+        <dcterms:W3CDTF>2012-07-05T14:40:37Z</dcterms:W3CDTF>
+      </dcterms:modified>
+      <dcterms:modified rdf:parseType="Resource">
+        <dcterms:W3CDTF>2015-05-24T02:46:57Z</dcterms:W3CDTF>
+      </dcterms:modified>
+      <bqmodel:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/biomodels.db/MODEL6617317313"/>
+        </rdf:Bag>
+      </bqmodel:is>
+      <bqmodel:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/biomodels.db/BIOMD0000000018"/>
+        </rdf:Bag>
+      </bqmodel:is>
+      <bqmodel:isDescribedBy>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/pubmed/2732237"/>
+        </rdf:Bag>
+      </bqmodel:isDescribedBy>
+      <bqbiol:occursIn>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/taxonomy/9606"/>
+        </rdf:Bag>
+      </bqbiol:occursIn>
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/icd/C50"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:hasPart>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.pathway/map00670"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.pathway/map00790"/>
+        </rdf:Bag>
+      </bqbiol:hasPart>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.go/GO:0046655"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>    </annotation>
+    <listOfUnitDefinitions>
+      <unitDefinition id="substance" name="micromole (new default)">
+        <listOfUnits>
+          <unit exponent="1" kind="mole" multiplier="1" scale="-6"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="time" name="heure (new default)">
+        <listOfUnits>
+          <unit exponent="1" kind="second" multiplier="3600" scale="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment constant="true" id="cell" size="1" spatialDimensions="3"/>
+      <compartment constant="true" id="ext" size="1" spatialDimensions="3"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="AICAR" initialConcentration="3.695">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990574">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:18406"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C04677"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="ATP" initialConcentration="2980">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990895">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:15422"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00002"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="CH2FH4" initialConcentration="0.26" name="5,10-methylene-tetrahydrofolate">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990455">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:15636"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00143"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="CH3FH4" initialConcentration="1.63" name="5-methyl-tetrahydrofolate">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990475">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:15641"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00440"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="CHOFH4" initialConcentration="1" name="10-formyl-tetrahydrofolate">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990495">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:15637"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00234"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="DHFRf" initialConcentration="0.64" name="dihydrofolate reductase free">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990394">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/uniprot/P00374"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="DHFRtot" initialConcentration="0.64" name="dihydrofolate reductase total">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990414">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/uniprot/P00374"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="dUMP" initialConcentration="20.76">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990815">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:17622"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00365"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="ext" constant="false" hasOnlySubstanceUnits="false" id="EMTX" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990795">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="FFH2" initialConcentration="0.000332" name="10-formyl-dihydrofolate">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990515">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:15634"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C03204"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="FGAR" initialConcentration="16.49">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990554">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C04376"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="FH2b" initialConcentration="0.0024" name="dihydrofolate bound">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990375">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:15633"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00415"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="FH2f" initialConcentration="0.0012" name="dihydrofolate free">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990355">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:15633"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00415"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="FH4" initialConcentration="0.46" name="tetrahydrofolate">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990435">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:20506"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00101"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="formate" initialConcentration="500">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990874">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:15740"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00058"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="GAR" initialConcentration="689.6">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990834">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C03838"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="glutamine" initialConcentration="7170">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990915">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:18050"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00064"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="glycine" initialConcentration="1600">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990935">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:15428"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00037"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="HCHO" initialConcentration="0.0074">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990534">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:16842"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00067"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="homocysteine" initialConcentration="10">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990994">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:17230"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C05330"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX1" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990595">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX1b" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990694">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX2" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990615">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX2b" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990714">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX3" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990635">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX3b" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990735">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX4" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990655">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX4b" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990755">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX5" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990674">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="MTX5b" initialConcentration="0">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990775">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01937"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="NADP" initialConcentration="6.73">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990955">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:18009"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00006"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="NADPH" initialConcentration="294">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990974">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:16474"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00005"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+      <species boundaryCondition="true" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="serine" initialConcentration="123.3">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_990854">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.chebi/CHEBI:17115"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00065"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+</species>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter constant="true" id="Keq" name="Keq" value="0.32"/>
+    </listOfParameters>
+    <listOfRules>
+      <assignmentRule metaid="metaid_0000088">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">        
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> FH2f </ci>
+              <ci> DHFRf </ci>
+            </apply>
+            <ci> Keq </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule metaid="metaid_0000089">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">        
+          <apply>
+            <plus/>
+            <apply>
+              <plus/>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <plus/>
+                    <apply>
+                      <plus/>
+                      <ci> FH2b </ci>
+                      <ci> DHFRf </ci>
+                    </apply>
+                    <ci> MTX1b </ci>
+                  </apply>
+                  <ci> MTX2b </ci>
+                </apply>
+                <ci> MTX3b </ci>
+              </apply>
+              <ci> MTX4b </ci>
+            </apply>
+            <ci> MTX5b </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+    </listOfRules>
+    <listOfReactions>
+      <reaction fast="false" id="AICARsyn" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991380">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.5.3"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="FGAR" species="FGAR" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="AICAR" species="AICAR" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="glutamine" species="glutamine"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <divide/>
+                    <apply>
+                      <divide/>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <times/>
+                          <ci> cell </ci>
+                          <ci> Vm </ci>
+                        </apply>
+                        <ci> glutamine </ci>
+                      </apply>
+                      <ci> Km1 </ci>
+                    </apply>
+                    <apply>
+                      <plus/>
+                      <cn type="integer"> 1 </cn>
+                      <apply>
+                        <divide/>
+                        <ci> glutamine </ci>
+                        <ci> Km1 </ci>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <ci> FGAR </ci>
+                </apply>
+                <ci> Km2 </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <cn type="integer"> 1 </cn>
+                <apply>
+                  <divide/>
+                  <ci> FGAR </ci>
+                  <ci> Km2 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="ATIC12" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991346">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.2.3"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04560"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="AICAR" species="AICAR" stoichiometry="1"/>
+          <speciesReference name="FFH2" species="FFH2" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="FH2f" species="FH2f" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="FH2f" species="FH2f"/>
+          <modifierSpeciesReference name="MTX1" species="MTX1"/>
+          <modifierSpeciesReference name="MTX2" species="MTX2"/>
+          <modifierSpeciesReference name="MTX3" species="MTX3"/>
+          <modifierSpeciesReference name="MTX4" species="MTX4"/>
+          <modifierSpeciesReference name="MTX5" species="MTX5"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> cell </ci>
+                    <ci> Vm </ci>
+                  </apply>
+                  <ci> FFH2 </ci>
+                </apply>
+                <ci> AICAR </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <times/>
+                    <ci> AICAR </ci>
+                    <ci> FFH2 </ci>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> FFH2 </ci>
+                    <ci> Km2 </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <ci> AICAR </ci>
+                      <ci> Km2 </ci>
+                    </apply>
+                    <ci> Km1 </ci>
+                  </apply>
+                  <apply>
+                    <plus/>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <plus/>
+                          <apply>
+                            <plus/>
+                            <apply>
+                              <plus/>
+                              <apply>
+                                <plus/>
+                                <cn type="integer"> 1 </cn>
+                                <apply>
+                                  <divide/>
+                                  <ci> MTX1 </ci>
+                                  <ci> Ki21 </ci>
+                                </apply>
+                              </apply>
+                              <apply>
+                                <divide/>
+                                <ci> MTX2 </ci>
+                                <ci> Ki22 </ci>
+                              </apply>
+                            </apply>
+                            <apply>
+                              <divide/>
+                              <ci> MTX3 </ci>
+                              <ci> Ki23 </ci>
+                            </apply>
+                          </apply>
+                          <apply>
+                            <divide/>
+                            <ci> MTX4 </ci>
+                            <ci> Ki24 </ci>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <divide/>
+                          <ci> MTX5 </ci>
+                          <ci> Ki25 </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <divide/>
+                        <ci> FH2f </ci>
+                        <ci> Ki1 </ci>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <divide/>
+                      <ci> FFH2 </ci>
+                      <ci> Ki1f </ci>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="ATIC7" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991204">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04560"/>
+          <rdf:li rdf:resource="http://identifiers.org/reactome/REACT_812"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.2.3"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="AICAR" species="AICAR" stoichiometry="1"/>
+          <speciesReference name="CHOFH4" species="CHOFH4" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="FH4" species="FH4" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="FFH2" species="FFH2"/>
+          <modifierSpeciesReference name="FH2f" species="FH2f"/>
+          <modifierSpeciesReference name="MTX1" species="MTX1"/>
+          <modifierSpeciesReference name="MTX2" species="MTX2"/>
+          <modifierSpeciesReference name="MTX3" species="MTX3"/>
+          <modifierSpeciesReference name="MTX4" species="MTX4"/>
+          <modifierSpeciesReference name="MTX5" species="MTX5"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> cell </ci>
+                    <ci> Vm </ci>
+                  </apply>
+                  <ci> CHOFH4 </ci>
+                </apply>
+                <ci> AICAR </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <times/>
+                    <ci> AICAR </ci>
+                    <ci> CHOFH4 </ci>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> CHOFH4 </ci>
+                    <ci> Km2 </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <ci> AICAR </ci>
+                      <ci> Km2 </ci>
+                    </apply>
+                    <ci> Km1 </ci>
+                  </apply>
+                  <apply>
+                    <plus/>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <plus/>
+                          <apply>
+                            <plus/>
+                            <apply>
+                              <plus/>
+                              <apply>
+                                <plus/>
+                                <cn type="integer"> 1 </cn>
+                                <apply>
+                                  <divide/>
+                                  <ci> MTX1 </ci>
+                                  <ci> Ki21 </ci>
+                                </apply>
+                              </apply>
+                              <apply>
+                                <divide/>
+                                <ci> MTX2 </ci>
+                                <ci> Ki22 </ci>
+                              </apply>
+                            </apply>
+                            <apply>
+                              <divide/>
+                              <ci> MTX3 </ci>
+                              <ci> Ki23 </ci>
+                            </apply>
+                          </apply>
+                          <apply>
+                            <divide/>
+                            <ci> MTX4 </ci>
+                            <ci> Ki24 </ci>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <divide/>
+                          <ci> MTX5 </ci>
+                          <ci> Ki25 </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <divide/>
+                        <ci> FH2f </ci>
+                        <ci> Ki1 </ci>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <divide/>
+                      <ci> FFH2 </ci>
+                      <ci> Ki1f </ci>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="CH2FH4toHCHO" reversible="false">
+        <listOfReactants>
+          <speciesReference name="CH2FH4" species="CH2FH4" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="FH4" species="FH4" stoichiometry="1"/>
+          <speciesReference name="HCHO" species="HCHO" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> hl </ci>
+              </apply>
+              <ci> CH2FH4 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="DHFRdeg" reversible="false">
+        <listOfReactants>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference name="FH2b" species="FH2b"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> Vm </ci>
+                <ci> cell </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <ci> DHFRf </ci>
+                <ci> FH2b </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="DHFReductase" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991302">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R00939"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/1.5.1.3"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="FH2f" species="FH2f" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="FH4" species="FH4" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="FH2b" species="FH2b"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> kter </ci>
+              </apply>
+              <ci> FH2b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="DHFRfsyn" reversible="false">
+        <listOfProducts>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="EMTX" species="EMTX"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <ci> cell </ci>
+              <apply>
+                <plus/>
+                <ci> k0 </ci>
+                <apply>
+                  <times/>
+                  <ci> k1 </ci>
+                  <ci> EMTX </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="FFH2syn" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991328">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R02238"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.4.17"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="FH2f" species="FH2f" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="FFH2" species="FFH2" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> FH2f </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="FH2bdeg" reversible="false">
+        <listOfProducts>
+          <speciesReference name="FH2f" species="FH2f" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="FH2b" species="FH2b"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> FH2b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="FPGS12" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991398">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.2.17"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX1" species="MTX1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX2" species="MTX2" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX1 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="FPGS23" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991417">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.2.17"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX2" species="MTX2" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX3" species="MTX3" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="FPGS34" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991437">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.2.17"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX3" species="MTX3" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX4" species="MTX4" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX3 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="FPGS45" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991456">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.2.17"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX4" species="MTX4" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX5" species="MTX5" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX4 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="GARFT" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991170">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04325"/>
+          <rdf:li rdf:resource="http://identifiers.org/reactome/REACT_1509"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.2.2"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="CHOFH4" species="CHOFH4" stoichiometry="1"/>
+          <speciesReference name="GAR" species="GAR" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="FGAR" species="FGAR" stoichiometry="1"/>
+          <speciesReference name="FH4" species="FH4" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="FFH2" species="FFH2"/>
+          <modifierSpeciesReference name="FH2f" species="FH2f"/>
+          <modifierSpeciesReference name="MTX1" species="MTX1"/>
+          <modifierSpeciesReference name="MTX2" species="MTX2"/>
+          <modifierSpeciesReference name="MTX3" species="MTX3"/>
+          <modifierSpeciesReference name="MTX4" species="MTX4"/>
+          <modifierSpeciesReference name="MTX5" species="MTX5"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> cell </ci>
+                    <ci> Vm </ci>
+                  </apply>
+                  <ci> CHOFH4 </ci>
+                </apply>
+                <ci> GAR </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <times/>
+                    <ci> GAR </ci>
+                    <ci> CHOFH4 </ci>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> CHOFH4 </ci>
+                    <ci> Km2 </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <ci> GAR </ci>
+                      <ci> Km2 </ci>
+                    </apply>
+                    <ci> Km1 </ci>
+                  </apply>
+                  <apply>
+                    <plus/>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <plus/>
+                          <apply>
+                            <plus/>
+                            <apply>
+                              <plus/>
+                              <apply>
+                                <plus/>
+                                <cn type="integer"> 1 </cn>
+                                <apply>
+                                  <divide/>
+                                  <ci> MTX1 </ci>
+                                  <ci> Ki21 </ci>
+                                </apply>
+                              </apply>
+                              <apply>
+                                <divide/>
+                                <ci> MTX2 </ci>
+                                <ci> Ki22 </ci>
+                              </apply>
+                            </apply>
+                            <apply>
+                              <divide/>
+                              <ci> MTX3 </ci>
+                              <ci> Ki23 </ci>
+                            </apply>
+                          </apply>
+                          <apply>
+                            <divide/>
+                            <ci> MTX4 </ci>
+                            <ci> Ki24 </ci>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <divide/>
+                          <ci> MTX5 </ci>
+                          <ci> Ki25 </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <divide/>
+                        <ci> FH2f </ci>
+                        <ci> Ki1 </ci>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <divide/>
+                      <ci> FFH2 </ci>
+                      <ci> Ki1f </ci>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="GGH21" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991476">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/3.4.19.9"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX2" species="MTX2" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX1" species="MTX1" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="GGH32" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991496">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/3.4.19.9"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX3" species="MTX3" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX2" species="MTX2" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX3 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="GGH43" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991516">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/3.4.19.9"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX4" species="MTX4" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX3" species="MTX3" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX4 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="GGH54" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991536">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/3.4.19.9"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX5" species="MTX5" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX4" species="MTX4" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX5 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="HCHOtoCH2FH4" reversible="false">
+        <listOfReactants>
+          <speciesReference name="FH4" species="FH4" stoichiometry="1"/>
+          <speciesReference name="HCHO" species="HCHO" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="CH2FH4" species="CH2FH4" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> cell </ci>
+                  <ci> hp </ci>
+                </apply>
+                <ci> FH4 </ci>
+              </apply>
+              <ci> HCHO </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="HCOOHtoCHOFH4" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991149">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R00943"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.4.3"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="ATP" species="ATP" stoichiometry="1"/>
+          <speciesReference name="FH4" species="FH4" stoichiometry="1"/>
+          <speciesReference name="formate" species="formate" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="CHOFH4" species="CHOFH4" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <plus/>
+                    <cn type="integer"> 1 </cn>
+                    <apply>
+                      <divide/>
+                      <ci> Km1 </ci>
+                      <ci> FH4 </ci>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <plus/>
+                    <cn type="integer"> 1 </cn>
+                    <apply>
+                      <divide/>
+                      <ci> Km2 </ci>
+                      <ci> ATP </ci>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <divide/>
+                    <ci> Km3 </ci>
+                    <ci> formate </ci>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTHFD" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991242">
+      <bqbiol:hasPart>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/1.5.1.5"/>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.4.3"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R01220"/>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R01655"/>
+        </rdf:Bag>
+      </bqbiol:hasPart>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="CH2FH4" species="CH2FH4" stoichiometry="1"/>
+          <speciesReference name="NADP" species="NADP" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="CHOFH4" species="CHOFH4" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <divide/>
+                    <apply>
+                      <divide/>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <times/>
+                          <ci> cell </ci>
+                          <ci> Vm </ci>
+                        </apply>
+                        <ci> CH2FH4 </ci>
+                      </apply>
+                      <ci> Km1 </ci>
+                    </apply>
+                    <apply>
+                      <plus/>
+                      <cn type="integer"> 1 </cn>
+                      <apply>
+                        <divide/>
+                        <ci> CH2FH4 </ci>
+                        <ci> Km1 </ci>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <ci> NADP </ci>
+                </apply>
+                <ci> Km2 </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <cn type="integer"> 1 </cn>
+                <apply>
+                  <divide/>
+                  <ci> NADP </ci>
+                  <ci> Km2 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTHFR" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991099">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R01224"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/1.5.1.20"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="CH2FH4" species="CH2FH4" stoichiometry="1"/>
+          <speciesReference name="NADPH" species="NADPH" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="CH3FH4" species="CH3FH4" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="FH2f" species="FH2f"/>
+          <modifierSpeciesReference name="MTX1" species="MTX1"/>
+          <modifierSpeciesReference name="MTX2" species="MTX2"/>
+          <modifierSpeciesReference name="MTX3" species="MTX3"/>
+          <modifierSpeciesReference name="MTX4" species="MTX4"/>
+          <modifierSpeciesReference name="MTX5" species="MTX5"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> cell </ci>
+                    <ci> Vm </ci>
+                  </apply>
+                  <ci> CH2FH4 </ci>
+                </apply>
+                <ci> NADPH </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <times/>
+                    <ci> NADPH </ci>
+                    <ci> CH2FH4 </ci>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> CH2FH4 </ci>
+                    <ci> Km2 </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <ci> NADPH </ci>
+                      <ci> Km2 </ci>
+                    </apply>
+                    <ci> Km1 </ci>
+                  </apply>
+                  <apply>
+                    <plus/>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <plus/>
+                          <apply>
+                            <plus/>
+                            <apply>
+                              <plus/>
+                              <cn type="integer"> 1 </cn>
+                              <apply>
+                                <divide/>
+                                <ci> MTX1 </ci>
+                                <ci> Ki21 </ci>
+                              </apply>
+                            </apply>
+                            <apply>
+                              <divide/>
+                              <ci> MTX2 </ci>
+                              <ci> Ki22 </ci>
+                            </apply>
+                          </apply>
+                          <apply>
+                            <divide/>
+                            <ci> MTX3 </ci>
+                            <ci> Ki23 </ci>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <divide/>
+                          <ci> MTX4 </ci>
+                          <ci> Ki24 </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <divide/>
+                        <ci> MTX5 </ci>
+                        <ci> Ki25 </ci>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <divide/>
+                      <ci> FH2f </ci>
+                      <ci> Ki1 </ci>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTR" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991130">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R00946"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.1.13"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="CH3FH4" species="CH3FH4" stoichiometry="1"/>
+          <speciesReference name="homocysteine" species="homocysteine" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="FH4" species="FH4" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <divide/>
+                    <apply>
+                      <divide/>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <times/>
+                          <ci> cell </ci>
+                          <ci> Vm </ci>
+                        </apply>
+                        <ci> homocysteine </ci>
+                      </apply>
+                      <ci> Km2 </ci>
+                    </apply>
+                    <apply>
+                      <plus/>
+                      <cn type="integer"> 1 </cn>
+                      <apply>
+                        <divide/>
+                        <ci> homocysteine </ci>
+                        <ci> Km2 </ci>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <ci> CH3FH4 </ci>
+                </apply>
+                <ci> Km1 </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <cn type="integer"> 1 </cn>
+                <apply>
+                  <divide/>
+                  <ci> CH3FH4 </ci>
+                  <ci> Km1 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX1deg" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX1b" species="MTX1b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX1" species="MTX1" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX1b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX1export" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991577">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.go/GO:0008517"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX1" species="MTX1" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX1 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX1off" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX1b" species="MTX1b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX1" species="MTX1" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX1b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX1on" reversible="false">
+        <listOfReactants>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX1" species="MTX1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX1b" species="MTX1b" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> cell </ci>
+                  <ci> Vm </ci>
+                </apply>
+                <ci> DHFRf </ci>
+              </apply>
+              <ci> MTX1 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX2deg" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX2b" species="MTX2b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX2" species="MTX2" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX2b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX2export" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991594">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.go/GO:0008517"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX2" species="MTX2" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX2off" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX2b" species="MTX2b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX2" species="MTX2" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX2b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX2on" reversible="false">
+        <listOfReactants>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX2" species="MTX2" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX2b" species="MTX2b" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> cell </ci>
+                  <ci> Vm </ci>
+                </apply>
+                <ci> DHFRf </ci>
+              </apply>
+              <ci> MTX2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX3deg" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX3b" species="MTX3b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX3" species="MTX3" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX3b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX3export" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991614">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.go/GO:0008517"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX3" species="MTX3" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX3 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX3off" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX3b" species="MTX3b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX3" species="MTX3" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX3b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX3on" reversible="false">
+        <listOfReactants>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX3" species="MTX3" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX3b" species="MTX3b" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> cell </ci>
+                  <ci> Vm </ci>
+                </apply>
+                <ci> DHFRf </ci>
+              </apply>
+              <ci> MTX3 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX4deg" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX4b" species="MTX4b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX4" species="MTX4" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX4b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX4export" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991635">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.go/GO:0008517"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX4" species="MTX4" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX4 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX4off" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX4b" species="MTX4b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX4" species="MTX4" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX4b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX4on" reversible="false">
+        <listOfReactants>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX4" species="MTX4" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX4b" species="MTX4b" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> cell </ci>
+                  <ci> Vm </ci>
+                </apply>
+                <ci> DHFRf </ci>
+              </apply>
+              <ci> MTX4 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX5deg" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX5b" species="MTX5b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX5" species="MTX5" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX5b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX5export" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991655">
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.go/GO:0008517"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="MTX5" species="MTX5" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX5 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX5off" reversible="false">
+        <listOfReactants>
+          <speciesReference name="MTX5b" species="MTX5b" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX5" species="MTX5" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <ci> cell </ci>
+                <ci> Vm </ci>
+              </apply>
+              <ci> MTX5b </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="MTX5on" reversible="false">
+        <listOfReactants>
+          <speciesReference name="DHFRf" species="DHFRf" stoichiometry="1"/>
+          <speciesReference name="MTX5" species="MTX5" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX5b" species="MTX5b" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> cell </ci>
+                  <ci> Vm </ci>
+                </apply>
+                <ci> DHFRf </ci>
+              </apply>
+              <ci> MTX5 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="RFC" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991557">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/obo.go/GO:0008517"/>
+        </rdf:Bag>
+      </bqbiol:is>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="EMTX" species="EMTX" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="MTX1" species="MTX1" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> ext </ci>
+                  <ci> Vm </ci>
+                </apply>
+                <ci> EMTX </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <ci> Km </ci>
+                <ci> EMTX </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="SHMT" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991017">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R00945"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.2.1"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="FH4" species="FH4" stoichiometry="1"/>
+          <speciesReference name="serine" species="serine" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="CH2FH4" species="CH2FH4" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <divide/>
+                    <apply>
+                      <divide/>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <times/>
+                          <ci> cell </ci>
+                          <ci> Vm </ci>
+                        </apply>
+                        <ci> serine </ci>
+                      </apply>
+                      <ci> Km2 </ci>
+                    </apply>
+                    <apply>
+                      <plus/>
+                      <cn type="integer"> 1 </cn>
+                      <apply>
+                        <divide/>
+                        <ci> serine </ci>
+                        <ci> Km2 </ci>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <ci> FH4 </ci>
+                </apply>
+                <ci> Km1 </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <cn type="integer"> 1 </cn>
+                <apply>
+                  <divide/>
+                  <ci> FH4 </ci>
+                  <ci> Km1 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="SHMTr" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991038">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R00945"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.2.1"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="CH2FH4" species="CH2FH4" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="FH4" species="FH4" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="glycine" species="glycine"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <divide/>
+                    <apply>
+                      <divide/>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <times/>
+                          <ci> cell </ci>
+                          <ci> Vm </ci>
+                        </apply>
+                        <ci> glycine </ci>
+                      </apply>
+                      <ci> Km2 </ci>
+                    </apply>
+                    <apply>
+                      <plus/>
+                      <cn type="integer"> 1 </cn>
+                      <apply>
+                        <divide/>
+                        <ci> glycine </ci>
+                        <ci> Km2 </ci>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <ci> CH2FH4 </ci>
+                </apply>
+                <ci> Km1 </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <cn type="integer"> 1 </cn>
+                <apply>
+                  <divide/>
+                  <ci> CH2FH4 </ci>
+                  <ci> Km1 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction fast="false" id="TYMS" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="#_991269">
+      <bqbiol:is>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R02101"/>
+        </rdf:Bag>
+      </bqbiol:is>
+      <bqbiol:isVersionOf>
+        <rdf:Bag>
+          <rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.1.45"/>
+        </rdf:Bag>
+      </bqbiol:isVersionOf>
+    </rdf:Description>
+  </rdf:RDF>        </annotation>
+        <listOfReactants>
+          <speciesReference name="CH2FH4" species="CH2FH4" stoichiometry="1"/>
+          <speciesReference name="dUMP" species="dUMP" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference name="FH2f" species="FH2f" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference name="FFH2" species="FFH2"/>
+          <modifierSpeciesReference name="FH2f" species="FH2f"/>
+          <modifierSpeciesReference name="MTX1" species="MTX1"/>
+          <modifierSpeciesReference name="MTX2" species="MTX2"/>
+          <modifierSpeciesReference name="MTX3" species="MTX3"/>
+          <modifierSpeciesReference name="MTX4" species="MTX4"/>
+          <modifierSpeciesReference name="MTX5" species="MTX5"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> cell </ci>
+                    <ci> Vm </ci>
+                  </apply>
+                  <ci> CH2FH4 </ci>
+                </apply>
+                <ci> dUMP </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <times/>
+                      <ci> dUMP </ci>
+                      <ci> CH2FH4 </ci>
+                    </apply>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <plus/>
+                          <apply>
+                            <plus/>
+                            <apply>
+                              <plus/>
+                              <apply>
+                                <plus/>
+                                <cn type="integer"> 1 </cn>
+                                <apply>
+                                  <divide/>
+                                  <ci> MTX1 </ci>
+                                  <ci> Ki21 </ci>
+                                </apply>
+                              </apply>
+                              <apply>
+                                <divide/>
+                                <ci> MTX2 </ci>
+                                <ci> Ki22 </ci>
+                              </apply>
+                            </apply>
+                            <apply>
+                              <divide/>
+                              <ci> MTX3 </ci>
+                              <ci> Ki23 </ci>
+                            </apply>
+                          </apply>
+                          <apply>
+                            <divide/>
+                            <ci> MTX4 </ci>
+                            <ci> Ki24 </ci>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <divide/>
+                          <ci> MTX5 </ci>
+                          <ci> Ki25 </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <divide/>
+                        <ci> FH2f </ci>
+                        <ci> Ki1 </ci>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <times/>
+                      <ci> Km1 </ci>
+                      <ci> dUMP </ci>
+                    </apply>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <divide/>
+                        <apply>
+                          <times/>
+                          <apply>
+                            <divide/>
+                            <ci> FFH2 </ci>
+                            <ci> Ki1f </ci>
+                          </apply>
+                          <ci> MTX1 </ci>
+                        </apply>
+                        <ci> Ki21 </ci>
+                      </apply>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <plus/>
+                          <cn type="integer"> 1 </cn>
+                          <apply>
+                            <divide/>
+                            <ci> FFH2 </ci>
+                            <ci> Ki1f </ci>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <plus/>
+                          <apply>
+                            <plus/>
+                            <apply>
+                              <plus/>
+                              <apply>
+                                <plus/>
+                                <apply>
+                                  <plus/>
+                                  <cn type="integer"> 1 </cn>
+                                  <apply>
+                                    <divide/>
+                                    <ci> MTX2 </ci>
+                                    <ci> Ki22 </ci>
+                                  </apply>
+                                </apply>
+                                <apply>
+                                  <divide/>
+                                  <ci> MTX3 </ci>
+                                  <ci> Ki23 </ci>
+                                </apply>
+                              </apply>
+                              <apply>
+                                <divide/>
+                                <ci> MTX4 </ci>
+                                <ci> Ki24 </ci>
+                              </apply>
+                            </apply>
+                            <apply>
+                              <divide/>
+                              <ci> MTX5 </ci>
+                              <ci> Ki25 </ci>
+                            </apply>
+                          </apply>
+                          <apply>
+                            <divide/>
+                            <ci> FH2f </ci>
+                            <ci> Ki1 </ci>
+                          </apply>
+                        </apply>
+                      </apply>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> Km1 </ci>
+                    <ci> Km2 </ci>
+                  </apply>
+                  <apply>
+                    <plus/>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <plus/>
+                        <apply>
+                          <plus/>
+                          <apply>
+                            <plus/>
+                            <cn type="integer"> 1 </cn>
+                            <apply>
+                              <divide/>
+                              <ci> MTX2 </ci>
+                              <ci> Ki22 </ci>
+                            </apply>
+                          </apply>
+                          <apply>
+                            <divide/>
+                            <ci> MTX3 </ci>
+                            <ci> Ki23 </ci>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <divide/>
+                          <ci> MTX4 </ci>
+                          <ci> Ki24 </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <divide/>
+                        <ci> MTX5 </ci>
+                        <ci> Ki25 </ci>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <divide/>
+                      <ci> FH2f </ci>
+                      <ci> Ki1 </ci>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+<dataset>
+        <experimentalcondition bioelement="AICAR" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="3.695"/>
+        <experimentalcondition bioelement="ATP" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="2980.0"/>
+        <experimentalcondition bioelement="CH2FH4" descr="5,10-methylene-tetrahydrofolate" expcond="expcond_MorrisonAllegra" name="5,10-methylene-tetrahydrofolate" type="species" uri="" value="0.26"/>
+        <experimentalcondition bioelement="CH3FH4" descr="5-methyl-tetrahydrofolate" expcond="expcond_MorrisonAllegra" name="5-methyl-tetrahydrofolate" type="species" uri="" value="1.63"/>
+        <experimentalcondition bioelement="CHOFH4" descr="10-formyl-tetrahydrofolate" expcond="expcond_MorrisonAllegra" name="10-formyl-tetrahydrofolate" type="species" uri="" value="1.0"/>
+        <experimentalcondition bioelement="DHFRf" descr="dihydrofolate reductase free" expcond="expcond_MorrisonAllegra" name="dihydrofolate reductase free" type="species" uri="" value="0.64"/>
+        <experimentalcondition bioelement="DHFRtot" descr="dihydrofolate reductase total" expcond="expcond_MorrisonAllegra" name="dihydrofolate reductase total" type="species" uri="" value="0.64"/>
+        <experimentalcondition bioelement="dUMP" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="20.76"/>
+        <experimentalcondition bioelement="EMTX" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="FFH2" descr="10-formyl-dihydrofolate" expcond="expcond_MorrisonAllegra" name="10-formyl-dihydrofolate" type="species" uri="" value="3.32E-4"/>
+        <experimentalcondition bioelement="FGAR" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="16.49"/>
+        <experimentalcondition bioelement="FH2b" descr="dihydrofolate bound" expcond="expcond_MorrisonAllegra" name="dihydrofolate bound" type="species" uri="" value="0.0024"/>
+        <experimentalcondition bioelement="FH2f" descr="dihydrofolate free" expcond="expcond_MorrisonAllegra" name="dihydrofolate free" type="species" uri="" value="0.0012"/>
+        <experimentalcondition bioelement="FH4" descr="tetrahydrofolate" expcond="expcond_MorrisonAllegra" name="tetrahydrofolate" type="species" uri="" value="0.46"/>
+        <experimentalcondition bioelement="formate" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="500.0"/>
+        <experimentalcondition bioelement="GAR" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="689.6"/>
+        <experimentalcondition bioelement="glutamine" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="7170.0"/>
+        <experimentalcondition bioelement="glycine" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="1600.0"/>
+        <experimentalcondition bioelement="HCHO" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0074"/>
+        <experimentalcondition bioelement="homocysteine" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="10.0"/>
+        <experimentalcondition bioelement="MTX1" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="MTX1b" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="MTX2" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="MTX2b" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="MTX3" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="MTX3b" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="MTX4" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="MTX4b" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="MTX5" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="MTX5b" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="0.0"/>
+        <experimentalcondition bioelement="NADP" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="6.73"/>
+        <experimentalcondition bioelement="NADPH" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="294.0"/>
+        <experimentalcondition bioelement="serine" descr="" expcond="expcond_MorrisonAllegra" name="" type="species" uri="" value="123.3"/>
+    </dataset>
+</sbml>

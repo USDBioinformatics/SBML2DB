@@ -40,9 +40,12 @@ public class Sbmltodb {
         {
             server = "localhost";
             user = "root" ;
-            password = "root" ;
-            dbname = "sbmldb2" ;
-            filepath = "F:/Files/new" ;
+            password = "" ;
+            dbname = "sbml2db" ;
+            /**
+             * Path to get the SBML file list
+             */
+            filepath = "C:\\NetBeansProjects\\GithubRepositoryClone\\SBML2DB\\SBML_FilesList" ;
         }
         
         else
