@@ -35,6 +35,8 @@ public class Sbmltodb {
          String expcond ;
          
         String server,user,password,dbname,filepath;
+        String cwd = System.getProperty("user.dir");
+        System.out.println(cwd);
                 
         if(args.length == 0)
         {
@@ -43,9 +45,10 @@ public class Sbmltodb {
             password = "" ;
             dbname = "sbml2db" ;
             /**
-             * Path to get the SBML file list
+             * Path to get the SBML file list where cwd is "github\sbml2db\sbmltodb_standalone_Project\sbmltodb" so add a folder in this directory
+             * and mention folder name instead of sbmlfiles
              */
-            filepath = "C:\\NetBeansProjects\\GithubRepositoryClone\\SBML2DB\\SBML_FilesList" ;
+            filepath = cwd + "\\sbmlfiles" ;
         }
         
         else
