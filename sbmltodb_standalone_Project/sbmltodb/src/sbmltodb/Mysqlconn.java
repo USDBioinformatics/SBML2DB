@@ -181,7 +181,7 @@ public class Mysqlconn {
                 ps = conn.prepareStatement(selectquery);
                 ps.setString(1, bioid);
                 ps.setString(2, expcondid);
-                ps.setDouble(3, value);
+                ps.setDouble(3, (Double.isNaN(value) ? 0 : value));
                 ResultSet rs = ps.executeQuery();
                 int count=0;
                 if (rs.next())
@@ -197,11 +197,11 @@ public class Mysqlconn {
                 preparedStmt.setString (1, bioid);
                 preparedStmt.setString (2, expcondid);
                 preparedStmt.setString(3, ref);
-                preparedStmt.setDouble(4, value);
+                preparedStmt.setDouble(4, (Double.isNaN(value) ? 0 : value));
                 if(unit == -1)
                     preparedStmt.setNull(5, Types.DOUBLE);
                 else
-                    preparedStmt.setDouble(5, unit);
+                    preparedStmt.setDouble(5, (Double.isNaN(unit) ? 0 : unit));
 
                 // execute the preparedstatement
                 preparedStmt.execute();
@@ -660,7 +660,7 @@ public class Mysqlconn {
                 if( count == 0 )
                 {
             
-                String query = "insert into sbmltrigger (event_id,initialvalue,persisent,math)"
+                String query = "insert into sbmltrigger (event_id,initialvalue,persistent,math)"
                 + " values (?, ?, ?,?)";
  
                 // create the mysql insert preparedstatement

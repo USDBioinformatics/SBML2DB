@@ -42,8 +42,8 @@ public class Sbmltodb {
         {
             server = "localhost";
             user = "root" ;
-            password = "" ;
-            dbname = "sbml2db" ;
+            password = "root" ;
+            dbname = "sbmldb2" ;
             /**
              * Path to get the SBML file list where cwd is "github\sbml2db\sbmltodb_standalone_Project\sbmltodb" so add a folder in this directory
              * and mention folder name instead of sbmlfiles
@@ -159,12 +159,16 @@ public class Sbmltodb {
             }
               
 //            if(react.getKineticLaw().getAnnotationString() != "")
+            if(!(react.getKineticLaw() == null))
+            {
             str = react.getKineticLaw().getAnnotationString().replaceAll("<annotation>", "");
+            System.out.println(str);
             str = str.replaceAll("</annotation>", "");
             if(!react.getKineticLaw().getAnnotation().equals(null))
             sql.insertKineticLaw(react.getId(),react.getKineticLaw().getMetaId(),react.getKineticLaw().getMath().toString(),str.trim());
             else
                 sql.insertKineticLaw(react.getId(),react.getKineticLaw().getMetaId(),react.getKineticLaw().getMath().toString(),"");
+            }
         }
         
          /* Inserting Constraints  */
@@ -183,8 +187,9 @@ public class Sbmltodb {
            for (Event e : doc.getModel().getListOfEvents())
            {
                sql.insertevents(e.getId(), e.getName(), e.getUseValuesFromTriggerTime(), modelid);
+               if(!(e.getTrigger() == null ))
                sql.inserteventtrigger(e.getId(),e.getTrigger().getInitialValue(),e.getTrigger().getPersistent(),e.getTrigger().getMath().toString());
-               sql.inserteventpriority(e.getId(),e.getPriority().getMath().toString());
+               if(!(e.getDelay() == null ))
                sql.inserteventdelay(e.getId(),e.getDelay().getMath().toString());
                
                  for (EventAssignment ea : e.getListOfEventAssignments())
