@@ -68,6 +68,7 @@ public class Sbmltodb {
             if (file.isFile() && file.getName().endsWith(".xml"))
             {
                SBMLDocument doc = new FileCtrl().read(file); 
+               System.out.println(file.getName());
                 System.out.println(doc);
               
         Mysqlconn sql = new Mysqlconn(server,user,password,dbname);
@@ -162,7 +163,6 @@ public class Sbmltodb {
             if(!(react.getKineticLaw() == null))
             {
             str = react.getKineticLaw().getAnnotationString().replaceAll("<annotation>", "");
-            System.out.println(str);
             str = str.replaceAll("</annotation>", "");
             if(!react.getKineticLaw().getAnnotation().equals(null))
             sql.insertKineticLaw(react.getId(),react.getKineticLaw().getMetaId(),react.getKineticLaw().getMath().toString(),str.trim());
