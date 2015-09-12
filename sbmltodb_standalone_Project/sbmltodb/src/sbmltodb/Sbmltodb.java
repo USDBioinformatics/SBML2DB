@@ -18,8 +18,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
 import org.sbml.jsbml.* ;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.TrueFileFilter;
 
 
 public class Sbmltodb {
@@ -61,11 +63,9 @@ public class Sbmltodb {
         }
          
         File folder = new File(filepath);
-        File[] listOfFiles = folder.listFiles();
-
-        for (int i = 0; i < listOfFiles.length; i++) {
-            File file = listOfFiles[i];
-            if (file.isFile() && file.getName().endsWith(".xml"))
+        List<File> files = (List<File>) FileUtils.listFiles(folder, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE);
+            for (File file : files) {
+            if (file.isFile() && (file.getName().endsWith(".xml") || file.getName().endsWith("_url.xml")))
             {
                SBMLDocument doc = new FileCtrl().read(file); 
                System.out.println(file.getName());
